@@ -10,6 +10,8 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -33,3 +35,11 @@ jobs:
         run: |
           VERSION="1.0.${{ github.run_number }}"
           gh release create "v$VERSION" --title "v$VERSION" --generate-notes
+
+      - name: Publish create-gentilpedro-react to npm
+        if: ${{ env.NPM_TOKEN != '' }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          node create-app/sync-template.mjs
+          npm version "1.0.${{ github.run_number }}" --no-git-tag-version --prefix create-app
+          npm publish --access public --prefix create-app

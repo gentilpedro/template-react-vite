@@ -11,13 +11,26 @@ Template base para projetos front-end React + Vite.
 - ESLint (flat config) com `typescript-eslint`, `eslint-plugin-react-hooks` e `eslint-plugin-react-refresh`
 - `src/services/api.ts`: client HTTP mínimo (fetch) com suporte a token Bearer, pronto para apontar para uma API .NET (`VITE_API_URL`)
 
-## Como usar como template
+## Como usar
+
+**Via CLI (recomendado):**
+
+```
+npm create gentilpedro-react@latest minha-app
+cd minha-app
+npm install
+npm run dev
+```
+
+**Via GitHub template repo:**
 
 1. Use este repositório como template no GitHub ("Use this template") ou clone.
 2. Renomeie o campo `name` em `package.json`.
 3. Copie `.env.example` para `.env` e ajuste `VITE_API_URL`.
 4. `npm install`
 5. `npm run dev` (abre em `http://localhost:3000`)
+
+O pacote `create-gentilpedro-react` (pasta `create-app/`) é publicado a partir deste mesmo repositório — sempre que a `main` muda, o CI sincroniza o template e publica uma versão nova no npm.
 
 ## Scripts
 
