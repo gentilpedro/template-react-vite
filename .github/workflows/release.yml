@@ -39,5 +39,6 @@ jobs:
         run: |
           npm install -g npm@latest
           node create-app/sync-template.mjs
-          npm version "1.0.${{ github.run_number }}" --no-git-tag-version --prefix create-app
-          npm publish --access public --prefix create-app
+          cd create-app
+          npm version "1.0.${{ github.run_number }}" --no-git-tag-version
+          npm publish --access public
