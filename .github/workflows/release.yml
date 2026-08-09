@@ -7,6 +7,7 @@ on:
 permissions:
   contents: write
   id-token: write
+  packages: write
 
 jobs:
   release:
@@ -42,3 +43,10 @@ jobs:
           cd create-app
           npm version "1.0.${{ github.run_number }}" --no-git-tag-version
           npm publish --access public
+
+      - name: Mirror to GitHub Packages (cosmetic — shows in repo sidebar)
+        run: |
+          cd create-app
+          npm pkg set name="@gentilpedro/create-gentilpedro-react"
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
+          npm publish --registry=https://npm.pkg.github.com
