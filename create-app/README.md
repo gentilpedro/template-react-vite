@@ -17,6 +17,7 @@ npm run dev
 - [React Router](https://reactrouter.com/) (`react-router-dom`) já configurado com layout e rota 404
 - [Tailwind CSS v4](https://tailwindcss.com/) via `@tailwindcss/postcss` (sem `tailwind.config.js`; tema definido em `src/index.css` com `@theme`)
 - [lucide-react](https://lucide.dev/) para ícones
+- Tema claro/escuro pronto: botão no header, preferência salva em `localStorage`, fallback no tema do sistema e sem flash no carregamento
 - ESLint (flat config) com `typescript-eslint`, `eslint-plugin-react-hooks` e `eslint-plugin-react-refresh`
 - `src/services/api.ts`: client HTTP mínimo (fetch) com suporte a token Bearer, pronto para apontar para uma API .NET (`VITE_API_URL`)
 
