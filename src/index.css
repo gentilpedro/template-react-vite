@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+/* Dark mode por classe no <html> (e não só por prefers-color-scheme),
+   para que o usuário possa escolher o tema manualmente. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+
+  --surface:         #f0f7ff;
+  --surface-raised:  #ffffff;
+  --content:         #1b2431;
+  --content-muted:   #52607a;
+  --heading:         #4e519e;
+  --line:            #d8e4f2;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --surface:         #0f1620;
+  --surface-raised:  #172231;
+  --content:         #e8eef7;
+  --content-muted:   #9fb0c7;
+  --heading:         #a3d5ff;
+  --line:            #26364b;
+}
+
 @theme {
   --color-primary:          #6f73d2;
   --color-primary-dark:     #5a5db8;
@@ -8,6 +34,14 @@
   --color-accent:           #83c9f4;
   --color-accent-light:     #a3d5ff;
   --color-accent-lightest:  #d9f0ff;
+
+  /* Tokens semânticos: mudam de valor conforme o tema ativo. */
+  --color-surface:          var(--surface);
+  --color-surface-raised:   var(--surface-raised);
+  --color-content:          var(--content);
+  --color-content-muted:    var(--content-muted);
+  --color-heading:          var(--heading);
+  --color-line:             var(--line);
 }
 
 html,
@@ -20,7 +54,8 @@ body,
 }
 
 body {
-  background: #f0f7ff;
+  background: var(--surface);
+  color: var(--content);
   font-family: Arial, Helvetica, sans-serif;
 }
 

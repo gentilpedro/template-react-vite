@@ -6,7 +6,9 @@ import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // `create-app/template` é uma cópia gerada por create-app/sync-template.mjs;
+  // lintar os dois de uma vez confunde o typescript-eslint (dois tsconfigRootDir).
+  globalIgnores(['dist', 'create-app/template']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
