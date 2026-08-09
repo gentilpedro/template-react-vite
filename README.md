@@ -11,7 +11,7 @@ Template base para projetos front-end React + Vite.
 - ESLint (flat config) com `typescript-eslint`, `eslint-plugin-react-hooks` e `eslint-plugin-react-refresh`
 - `src/services/api.ts`: client HTTP mínimo (fetch) com suporte a token Bearer, pronto para apontar para uma API .NET (`VITE_API_URL`)
 
-## Como usar
+## Como criar um projeto novo
 
 **Via CLI (recomendado):**
 
