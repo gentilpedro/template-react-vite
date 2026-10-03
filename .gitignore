@@ -29,3 +29,6 @@ create-app/template/
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code: configuração pessoal de cada máquina (as skills do projeto são versionadas)
+.claude/settings.local.json
